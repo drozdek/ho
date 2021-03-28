@@ -8,7 +8,8 @@
         input {
             display: block;
             padding: 5px;
-            margin: 10px
+            margin: 0px
+            /* margin: 2px 0px 9px 0px */
         }
     </style>
     <title>Document</title>
@@ -17,15 +18,16 @@
     <p>Home office page</p>    
     <a href="http://localhost:3000/">see all events</a>
     <form action="http://localhost:3000/addevent" method="POST">
-        <input type="text" value="" name="id" id="id"/>
-        <input type="text" value="" name="type" id="name" />
-        <input type="text" value="" name="actorID" id="actorID" />
-        <input type="text" value="" name="actorLogin" id="actorLogin" />
-        <input type="text" value="" name="actorAvatarUrl" id="actorAvatarUrl" />
-        <input type="text" value="" name="repoID" id="repoID" />
-        <input type="text" value="" name="repoName" id="repoName" />
-        <input type="text" value="" name="repoUrl" id="repoUrl" />
-        <input type="submit" value="Submit" name="createdAt" />
+        <label for="id">Id</label><input type="text" value="" name="id" id="id"/>
+        <label for="type">Type</label><input type="text" value="" name="type" id="name" />
+        <label for="actorID">Actor ID</label><input type="text" value="" name="actorID" id="actorID" />
+        <label for="actorLogin">Actor Login</label><input type="text" value="" name="actorLogin" id="actorLogin" />
+        <label for="actorAvatarUrl">Actor Avatar Url</label><input type="text" value="" name="actorAvatarUrl" id="actorAvatarUrl" />
+        <label for="repoID">Repository ID</label><input type="text" value="" name="repoID" id="repoID" />
+        <label for="repoName">Repository Name</label><input type="text" value="" name="repoName" id="repoName" />
+        <label for="repoUrl">Repository Url</label><input type="text" value="" name="repoUrl" id="repoUrl" />
+        <label for="repoUrl">Created At - to be removed</label><input type="text" name="createdAt" />
+        <input type="submit" value="Submit" />
     </form>
 </body>
 </html>
