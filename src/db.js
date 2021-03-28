@@ -10,20 +10,24 @@ let
         else {
             console.log('Connected to DB');
             db.run(`CREATE TABLE events (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    type text,
-                    actorID INTEGER
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                type text,
+                actorID INTEGER,
+                actorLogin text,
+                actorAvatarUrl text,
+                repoID INTEGER,
+                repoName text,
+                repoUrl text,
+                created_at text
                 )`,
                 err => {
                     if (err) {
                         console.log('table already crated');
                     }
-                    else {                        
-                        var insert = 'INSERT INTO events (id, type, actorID) VALUES (?,?,?)'
-                        db.run(insert, [12345, "click", 987])
-                    }
                 }
-            )}
+            )
+            // db.close();
+        }
     });
 
 module.exports = db
