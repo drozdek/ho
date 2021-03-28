@@ -1,20 +1,15 @@
 var sqlite3 = require('sqlite3');
 
-let d = sqlite3.crea
+const DB = './database/db.db';
 
-let db = new sqlite3.Database('./database/db.db', (err) => {
+new sqlite3.Database(DB, sqlite3.OPEN_READWRITE, err => {
     if (err) {
-        return console.error(err.message);
+        return console.error('DB opened in W+ mode');
     }
-    console.log('DB instantiated...');
-});
-
-db.close((err) => {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log('Close the db connection.');
 });
 
 
-exports.db = db;
+new sqlite3.Database(DB, sqlite3.OPEN_READONLY, (err) => {
+    if (err)
+        return console.error('DB opened in R mode')
+});

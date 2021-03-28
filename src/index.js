@@ -1,11 +1,17 @@
 var express = require('express');
+var cors = require('cors');
 var app = express();
 var port = 3000;
 
-var { db } = require('./db');
+app.use(cors());
 
-app.get('/', function (res, req) {
-    req.send('opened')
+app.post('/addevent', function (req, res) {
+    console.log('post  called');
+});
+
+
+app.get('/', function (req, res) {
+    console.log('get called index');
 })
 
 app.listen(port);
