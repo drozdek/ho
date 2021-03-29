@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        label {
+            margin: 7px 0 0 0;
+            display: block;
+        }
         input {
             display: block;
             padding: 5px;
             margin: 0px
-            /* margin: 2px 0px 9px 0px */
         }
     </style>
     <title>Document</title>
-</head>
+</head> 
 <body>
     <p>Home office page</p>    
     <a href="http://localhost:3000/">see all events</a>
-    <form action="http://localhost:3000/addevent" method="POST">
+    <form action="http://localhost:3000/events" method="POST">
         <label for="id">Id</label><input type="text" value="" name="id" id="id"/>
         <label for="type">Type</label><input type="text" value="" name="type" id="name" />
         <label for="actorID">Actor ID</label><input type="text" value="" name="actorID" id="actorID" />
@@ -26,7 +29,6 @@
         <label for="repoID">Repository ID</label><input type="text" value="" name="repoID" id="repoID" />
         <label for="repoName">Repository Name</label><input type="text" value="" name="repoName" id="repoName" />
         <label for="repoUrl">Repository Url</label><input type="text" value="" name="repoUrl" id="repoUrl" />
-        <label for="createdAt">Created At - to be removed</label><input type="text" name="createdAt" />
         <input type="submit" value="Submit" />
     </form>
 </body>
