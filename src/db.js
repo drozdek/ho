@@ -10,7 +10,7 @@ let
         else {
             console.log('Connected to DB');
             db.run(`CREATE TABLE events (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY type UNIQUE,
                 type text,
                 actorID INTEGER,
                 actorLogin text,

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    var sql = "SELECT * FROM events ORDER BY id";
+    var sql = "SELECT * FROM events ORDER BY id DESC";
     db.all(sql, [], (err, rows) => {
         if (err) {
             console.error(err.message)
@@ -37,12 +37,16 @@ app.post('/events', (req, res) => {
     var data = {
         id: req.body.id,
         type: req.body.type,
-        actorID: req.body.actorID,
-        actorLogin: req.body.actorLogin,
-        actorAvatarUrl: req.body.actorAvatarUrl,
-        repoID: req.body.repoID,
-        repoName: req.body.repoName,
-        repoUrl: req.body.repoUrl,
+        actor: {
+            actorID: req.body.actorID,
+            actorLogin: req.body.actorLogin,
+            actorAvatarUrl: req.body.actorAvatarUrl
+        },
+        repo: {
+            repoID: req.body.repoID,
+            repoName: req.body.repoName,
+            repoUrl: req.body.repoUrl
+        },
         createdAt: new Date().getTime()
     };
 
@@ -51,16 +55,12 @@ app.post('/events', (req, res) => {
     db.run(sql, [
         data.id,
         data.type,
-        data.actorID,
-        data.actorLogin,
-        data.actorAvatarUrl,
-        data.repoID,
-        data.repoName,
-        data.repoUrl,
+        data.actor,
+        data.repo,
         data.createdAt
     ]);
 
-    res.end(JSON.stringify(response));
+    res.end(JSON.stringify(data));
 
 });
 
